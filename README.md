@@ -65,7 +65,7 @@
 
   bin/kafka-topics.sh --delete --topic jyxTest --zookeeper zk:2181
 
-  创建发布者
+  创建启动发布者
 
   bin/kafka-console-producer.sh --broker-list localhost:9092 --topic jyxTest
 
