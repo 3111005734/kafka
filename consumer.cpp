@@ -27,7 +27,9 @@ bool CKafkaConsumer::Start()
         return false;
  
     std::string errstr;
-    /*设置broker list*/
+    /*设置集群。卡夫卡可以单机运行也可集群运行。kafka集群配置项，在老版本用broker.list配置，新版本用bootstrap.servers。
+      集群的配置格式形如 192.168.130.100:9092,192.168.130.200:9092,192.168.130.300:9092，broker间用逗号分隔。
+     */
     if (conf->set("bootstrap.servers", brokers_, errstr) != RdKafka::Conf::CONF_OK)
     {
         //fprintf(stderr, "RdKafka conf set brokerlist failed : %s\n", errstr.c_str());
