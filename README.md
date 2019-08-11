@@ -58,8 +58,8 @@
   bin/zookeeper-server-start.sh -daemon  config/zookeeper.properties   (kafka中有zookeeper启动关闭脚本，但是要先配置好zookeeper.properties)
 
   查询topic：
-
-  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic jyxTest 
+  
+  bin/kafka-topics.sh --list --zookeeper localhost:2181
 
   删除topic
 
