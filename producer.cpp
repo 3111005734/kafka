@@ -20,7 +20,7 @@ bool CKafkaProducer::Start()
     RdKafka::Conf *conf = RdKafka::Conf::create(RdKafka::Conf::CONF_GLOBAL);
     RdKafka::Conf *tconf = RdKafka::Conf::create(RdKafka::Conf::CONF_TOPIC);
  
-    /*Set configuration properties,设置broker list*/
+    /*Set configuration properties,设置broker list。即设置卡夫卡集群*/
     if (conf->set("metadata.broker.list", m_strBroker, errstr) != RdKafka::Conf::CONF_OK)
     {
         //std::cerr << "RdKafka conf set brokerlist failed :" << errstr.c_str() << endl;
