@@ -55,12 +55,12 @@ public:
     }
 };
 
-class KafkaProducer
+class CKafkaProducer
 {
 public:
-    KafkaProducer(const string &brokers, const string &topics, int nPpartition = 0);
-    virtual ~KafkaProducer();
-    bool Init();
+    CKafkaProducer(const string &brokers, const string &topics, int nPpartition = 0);
+    virtual ~CKafkaProducer();
+    bool Start();
     bool Send(const string &msg);
     void Stop();
 private:

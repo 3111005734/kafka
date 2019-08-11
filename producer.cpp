@@ -1,17 +1,17 @@
 
 #include "producer.h"
  
-KafkaProducer::KafkaProducer(const string &brokers, const string &topics, int nPpartition /*= 1*/)
+CKafkaProducer::CKafkaProducer(const string &brokers, const string &topics, int nPpartition /*= 1*/)
     : m_bRun(true), m_strTopics(topics), m_strBroker(brokers), m_nPpartition(nPpartition)
 {
 }
  
-KafkaProducer::~KafkaProducer()
+CKafkaProducer::~CKafkaProducer()
 {
     Stop();
 }
  
-bool KafkaProducer::Init()
+bool CKafkaProducer::Start()
 {
     string errstr = "";
     Stop();
@@ -50,7 +50,7 @@ bool KafkaProducer::Init()
 }
 
 
-bool KafkaProducer::Send(const string &msg)
+bool CKafkaProducer::Send(const string &msg)
 {
     if (!m_bRun)
         return false;
@@ -78,7 +78,7 @@ bool KafkaProducer::Send(const string &msg)
     return true;
 }
  
-void KafkaProducer::Stop()
+void CKafkaProducer::Stop()
 {
     if (m_pTopic)
         delete m_pTopic;
