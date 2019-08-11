@@ -25,7 +25,9 @@ public:
     };
 
 public:
-    //消息队列里可能已有旧消息，入参offsetMode控制对旧消息的处理。可选值为：RD_KAFKA_OFFSET_BEGINNING、RD_KAFKA_OFFSET_END、RD_KAFKA_OFFSET_STORED等
+    /*消息队列里可能已有旧消息，入参offsetMode控制对旧消息的处理。可选值为：RD_KAFKA_OFFSET_BEGINNING、RD_KAFKA_OFFSET_END、RD_KAFKA_OFFSET_STORED等
+      卡夫卡可以单机运行也可集群运行。集群的配置格式形如 192.168.130.100:9092,192.168.130.200:9092,192.168.130.300:9092，broker间用逗号分隔。
+    */
     CKafkaConsumer(const std::string& brokers, const std::string& topics, std::string groupid, int64_t offsetMode = RD_KAFKA_OFFSET_END);
     
     virtual ~CKafkaConsumer();
